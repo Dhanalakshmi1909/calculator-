@@ -1,0 +1,186 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Online Calculator">
+  <title>NovaCalc | Online Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <span>✦</span> NovaCalc
+    </div>
+
+    <nav>
+      <button class="nav-btn active" data-section="calculator">Calculator</button>
+      <button class="nav-btn" data-section="history">History</button>
+      <button class="nav-btn" data-section="about">About</button>
+      <button class="nav-btn" data-section="settings">Special</button>
+    </nav>
+
+    <button id="nightModeBtn" class="icon-btn" title="Night mode">☾</button>
+  </header>
+
+  <main>
+    <!-- CALCULATOR -->
+    <section id="calculator" class="section active-section">
+      <div class="hero">
+        <p class="tag">SMART • FAST • SIMPLE</p>
+        <h1>Online Calculator</h1>
+        <p>Perform calculations quickly and accurately.</p>
+      </div>
+
+      <div class="calculator-card">
+        <div class="display-area">
+          <div id="previousDisplay" class="previous-display"></div>
+          <input
+            type="text"
+            id="display"
+            class="display"
+            placeholder="0"
+            autocomplete="off"
+            inputmode="decimal"
+            aria-label="Calculator display"
+          >
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+        <div class="calculator-grid">
+          <button class="calc-btn function" data-action="clear">AC</button>
+          <button class="calc-btn function" data-action="delete">DEL</button>
+          <button class="calc-btn function" data-value="%">%</button>
+          <button class="calc-btn operator" data-value="/">÷</button>
+
+          <button class="calc-btn" data-value="7">7</button>
+          <button class="calc-btn" data-value="8">8</button>
+          <button class="calc-btn" data-value="9">9</button>
+          <button class="calc-btn operator" data-value="*">×</button>
+
+          <button class="calc-btn" data-value="4">4</button>
+          <button class="calc-btn" data-value="5">5</button>
+          <button class="calc-btn" data-value="6">6</button>
+          <button class="calc-btn operator" data-value="-">−</button>
+
+          <button class="calc-btn" data-value="1">1</button>
+          <button class="calc-btn" data-value="2">2</button>
+          <button class="calc-btn" data-value="3">3</button>
+          <button class="calc-btn operator" data-value="+">+</button>
+
+          <button class="calc-btn" data-value="(">(</button>
+          <button class="calc-btn" data-value="0">0</button>
+          <button class="calc-btn" data-value=".">.</button>
+          <button class="calc-btn operator equals" data-action="calculate">=</button>
+
+          <button class="calc-btn" data-value=")">)</button>
+          <button class="calc-btn function" data-value="00">00</button>
+          <button class="calc-btn function" data-value="√">√</button>
+          <button class="calc-btn function" data-value="^">xʸ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="section">
+      <div class="page-card">
+        <div class="section-heading">
+          <div>
+            <p class="tag">YOUR CALCULATIONS</p>
+            <h2>History</h2>
+          </div>
+          <button id="clearHistoryBtn" class="danger-btn">Clear History</button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <div class="empty-state">
+            <span>⌁</span>
+            <h3>No calculations yet</h3>
+            <p>Your previous calculations will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="page-card about-card">
+        <p class="tag">ABOUT THE WEBSITE</p>
+        <h2>About NovaCalc</h2>
+
+        <p>
+          NovaCalc is a browser-based online calculator designed to provide
+          fast and convenient mathematical calculations with a clean interface.
+        </p>
+
+        <div class="about-box">
+          <h3>Need help or found an issue?</h3>
+          <p>You can contact the developer through email.</p>
+          <a href="mailto:dhanalakshmi190509@gmail.com" class="email-link">
+            ✉ dhanalakshmi190509@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings" class="section">
+      <div class="page-card">
+        <p class="tag">PERSONALIZATION</p>
+        <h2>Special</h2>
+        <p class="settings-description">
+          Choose the appearance that suits you.
+        </p>
+
+        <h3 class="setting-title">Website Colour</h3>
+
+        <div class="theme-grid">
+          <button class="theme-option selected" data-theme="navy">
+            <span class="theme-circle navy"></span>
+            Navy Blue
+          </button>
+
+          <button class="theme-option" data-theme="green">
+            <span class="theme-circle green"></span>
+            Emerald Green
+          </button>
+
+          <button class="theme-option" data-theme="yellow">
+            <span class="theme-circle yellow"></span>
+            Golden Yellow
+          </button>
+
+          <button class="theme-option" data-theme="wine">
+            <span class="theme-circle wine"></span>
+            Wine Red
+          </button>
+
+          <button class="theme-option" data-theme="purple">
+            <span class="theme-circle purple"></span>
+            Royal Purple
+          </button>
+        </div>
+
+        <h3 class="setting-title">Display</h3>
+
+        <button id="nightModeSettingBtn" class="night-setting">
+          <span>
+            <strong>Eye Comfort Mode</strong>
+            <small>Use softer dark colours for comfortable viewing.</small>
+          </span>
+          <span id="modeStatus" class="mode-status">OFF</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> NovaCalc • Built for simple calculations</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
